@@ -33,8 +33,6 @@ import Trapzoidal from './page/integration/trapzoidal';
 import CompositeTrapzoidal from './page/integration/compositetrapzoidal';
 import Simpson from './page/integration/simpson';
 import CompositeSimpson from './page/integration/compositesimpson';
-//Differentiation
-import Differentiation from './page/differentiation/differentiation';
 
 
 const { SubMenu } = Menu;
@@ -146,20 +144,6 @@ class App extends Component {
 
                 </SubMenu>
 
-                <SubMenu
-                  key="sub6"
-                  title={
-                    <span>
-                      <CalculatorOutlined />
-                      Differentiation
-                </span>
-                  }
-                >
-                  <Menu.Item key="24"><CaretRightOutlined />Differentiation <Link to = "/differentiation"/> </Menu.Item>
-
-                </SubMenu>
-
-
               </Menu>
             </Sider>
             <Content style={{ background: "#FFB947", color: "black" , padding: '0 24px', minHeight: 750 }}>
@@ -186,7 +170,6 @@ class App extends Component {
             <Route path = "/compositetrapzoidal" component = {CompositeTrapzoidal}/> 
             <Route path = "/simpson" component = {Simpson}/> 
             <Route path = "/compositesimpson" component = {CompositeSimpson}/> 
-            <Route path = "/differentiation" component = {Differentiation}/> 
             </Content>
           </Layout>
         </Content>
