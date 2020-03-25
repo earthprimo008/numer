@@ -8,7 +8,7 @@ const API_PORT = 3001;
 
 //mongoDB CONNECT
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/shopper');
+mongoose.connect('mongodb://localhost/shopper',{ useUnifiedTopology: true, useNewUrlParser: true });
 mongoose.Promise = global.Promise;
 
 

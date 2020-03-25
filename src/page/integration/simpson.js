@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Card, Input, Button} from 'antd';
 import 'antd/dist/antd.css';
 import {compile , range} from 'mathjs'
+import axios from 'axios';
 var Algebrite = require('algebrite')
 
 const InputStyle = {
@@ -48,6 +49,18 @@ class Simpson extends Component {
         let scope = {x:parseFloat(X)};
         return expr.eval(scope);        
     }
+
+    data = async() =>{
+        var response = await axios.get('http://localhost:3001/api/users/showsimpsonmodel').then(res => {return res.data});
+            this.setState({
+                fx:response['data'][0]['fx'],
+                a:response['data'][0]['a'],
+                b:response['data'][0]['b']
+            })
+            this.simpson(this.state.a,this.state.b);
+    }
+
+
     render() {
         return(
             <div style={{padding: "30px" }}>
@@ -66,6 +79,11 @@ class Simpson extends Component {
                                 ()=>this.simpson(parseInt(this.state.a), parseInt(this.state.b), parseInt(this.state.n))
                             }  
                         style={{background: "#4caf50", color: "white", fontSize: "20px"}}>Submit</Button>
+
+                        <Button id="submit_button" onClick= {
+                                ()=>this.data()
+                            }  
+                        style={{background: "#4caf50", color: "white", fontSize: "20px", marginLeft : "20px"}}>Data</Button>
                         
                     </Card>     
                     {this.state.showOutputCard && 

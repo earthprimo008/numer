@@ -40,7 +40,7 @@ class Newton extends Component {
             showGraph: false
         }
         this.handleChange = this.handleChange.bind(this);
-        this.newton_raphson = this.newton_raphson.bind(this);
+        this.newton_raphson = this.newtonraphson.bind(this);
     }
 
     newtonraphson(xold) {
@@ -104,7 +104,7 @@ class Newton extends Component {
                 <div>
                     <Card
                     bordered={true}
-                    style={{ width: 300, background: "#3F3931", color: "#FFFFFFFF" }}
+                    style={{ width: 280, background: "#3F3931", color: "#FFFFFFFF" }}
                     onChange={this.handleChange}
                     >
                         <h2 style={{ color:'white'}}>f(x)</h2><Input size="large" name="fx" style={InputStyle}></Input>
